@@ -9,16 +9,16 @@
 | **Repo URL** | https://github.com/asunnyboy861/ClearMornings |
 | **Visibility** | Public |
 | **Primary Language** | Swift |
-| **GitHub Pages** | ⏳ To be enabled from `/docs` in PHASE 7 |
+| **GitHub Pages** | ✅ **ENABLED** (from `/docs` folder) |
 
 ## Policy Pages (Deployed from Main Repository /docs)
 
 | Page | URL | Status |
 |------|-----|--------|
-| Landing Page | https://asunnyboy861.github.io/ClearMornings/ | ⏳ Pending |
-| Support | https://asunnyboy861.github.io/ClearMornings/support.html | ⏳ Pending |
-| Privacy Policy | https://asunnyboy861.github.io/ClearMornings/privacy.html | ⏳ Pending |
-| Terms of Use | https://asunnyboy861.github.io/ClearMornings/terms.html | ⏳ Pending (subscription model) |
+| Landing Page | https://asunnyboy861.github.io/ClearMornings/ | ✅ Active |
+| Support | https://asunnyboy861.github.io/ClearMornings/support.html | ✅ Active |
+| Privacy Policy | https://asunnyboy861.github.io/ClearMornings/privacy.html | ✅ Active |
+| Terms of Use | https://asunnyboy861.github.io/ClearMornings/terms.html | ✅ Active |
 
 ## Repository Structure
 
