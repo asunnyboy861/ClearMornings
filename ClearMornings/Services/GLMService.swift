@@ -1,4 +1,5 @@
 import Foundation
+import StoreKit
 
 enum GLMError: LocalizedError {
     case notConfigured
@@ -44,7 +45,7 @@ struct GLMClient {
     let mode: Mode
 
     static var devKey: String? {
-        guard let url = Bundle.main.url(forResource: "GLMSecret", withExtension: "txt"),
+        guard let url = Bundle.main.url(forResource: "GLMProxySecret", withExtension: "txt"),
               let raw = try? String(contentsOf: url, encoding: .utf8) else { return nil }
         for line in raw.split(separator: "\n") {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
@@ -58,6 +59,19 @@ struct GLMClient {
     }
 
     static var builtInAvailable: Bool { devKey != nil }
+
+    /// StoreKit 2 signed entitlement JWS for the proxy (production channel).
+    /// The JWS lives on the VerificationResult, NOT on the Transaction.
+    /// Covers both subscriptions (pro_monthly/yearly) and the BYO non-consumable (pro_lifetime).
+    static func currentEntitlementJWS() async -> String? {
+        for await result in Transaction.currentEntitlements {
+            guard case .verified(let tx) = result,
+                  tx.revocationDate == nil,
+                  tx.productType == .autoRenewable || tx.productType == .nonConsumable else { continue }
+            return result.jwsRepresentation
+        }
+        return nil
+    }
 
     struct SSEChunk: Decodable {
         struct Choice: Decodable {
@@ -104,8 +118,7 @@ struct GLMClient {
     func generate(messages: [GLMMessage], maxTokens: Int = 4096, temperature: Double = 0.3) async throws -> String {
         switch mode {
         case .builtIn:
-            guard let devKey = Self.devKey else { throw GLMError.notConfigured }
-            return try await generateViaProxy(messages: messages, maxTokens: maxTokens, temperature: temperature, devKey: devKey, url: Self.proxyURL)
+            return try await generateViaProxy(messages: messages, maxTokens: maxTokens, temperature: temperature, url: Self.proxyURL)
         case .byo(let key):
             let body: [String: Any] = [
                 "model": Self.model,
@@ -119,17 +132,29 @@ struct GLMClient {
         }
     }
 
-    private func generateViaProxy(messages: [GLMMessage], maxTokens: Int, temperature: Double, devKey: String, url: URL) async throws -> String {
-        let body: [String: Any] = [
+    private func generateViaProxy(messages: [GLMMessage], maxTokens: Int, temperature: Double, url: URL) async throws -> String {
+        var body: [String: Any] = [
             "appId": Self.appID,
             "userId": KeychainStore.userId(),
-            "devKey": devKey,
             "payload": payloadBody(messages: messages, maxTokens: maxTokens, temperature: temperature)
         ]
+        // Credential priority: devKey (test period) -> subscription JWS (production)
+        if let devKey = Self.devKey {
+            body["devKey"] = devKey
+        } else if let jws = await Self.currentEntitlementJWS() {
+            body["appTransaction"] = jws
+        } else {
+            throw GLMError.notConfigured
+        }
         do {
             return try await requestOnce(url: url, body: body, bearer: nil)
-        } catch GLMError.network(let code) where code >= 500 || code == 0 {
-            return try await requestOnce(url: Self.proxyBackupURL, body: body, bearer: nil)
+        } catch let error as GLMError {
+            switch error {
+            case .network(let code) where code >= 500 || code == 0, .emptyResponse:
+                return try await requestOnce(url: Self.proxyBackupURL, body: body, bearer: nil)
+            default:
+                throw error
+            }
         }
     }
 

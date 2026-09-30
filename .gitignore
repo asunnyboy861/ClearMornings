@@ -1,7 +1,7 @@
 .env
 keytext*.md
 COMPETITOR_REPORT.md
-GLMSecret.txt
+GLMProxySecret.txt
 *.log
 .DS_Store
 xcuserdata/

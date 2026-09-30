@@ -59,13 +59,13 @@ final class AIRouter: ObservableObject {
     private var purchaseManager = PurchaseManager.shared
 
     var canUseDeepChat: Bool {
-        guard Self.builtInConfigured || KeychainStore.byoKey != nil else { return false }
+        guard Self.builtInConfigured || KeychainStore.byoKey != nil || purchaseManager.isPro else { return false }
         if purchaseManager.isPro { return true }
         return QuotaStore.deepChatsThisWeek() < Self.freeWeeklyChats
     }
 
     var canUseReport: Bool {
-        guard Self.builtInConfigured || KeychainStore.byoKey != nil else { return false }
+        guard Self.builtInConfigured || KeychainStore.byoKey != nil || purchaseManager.isPro else { return false }
         if purchaseManager.isPro { return true }
         return QuotaStore.reportsThisMonth() < Self.freeMonthlyReports
     }
