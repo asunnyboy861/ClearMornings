@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08C4159B97447E47F0FEF47B /* SOSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19A4AFE7E1F00E123EFC38C4 /* SOSView.swift */; };
+		1247F1CF2078F7140B19ABCB /* GLMProxySecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B5CDD1AB8367890D5889CAB /* GLMProxySecret.txt */; };
 		14A30DEF4C9B5DE74D84AE1C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4D072CD9331EA6A1DB3B95E5 /* PrivacyInfo.xcprivacy */; };
 		1A38AF7F94E8FA9EFB8AB2BA /* AppleFMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA186A5856185054022FB8B0 /* AppleFMService.swift */; };
 		22170E6CD32BF75595084CC6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7CAF9DC3D6145761497BD201 /* PrivacyInfo.xcprivacy */; };
@@ -22,7 +23,6 @@
 		76023ECD7D5D95009FD8BCE1 /* CheckInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0547A57A048225FCC5D9D9 /* CheckInService.swift */; };
 		799F080C2DDCE2A39AD736E4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40518D52BD359A818E45DA9 /* OnboardingView.swift */; };
 		8FC86B1AE03A829CF1081D0F /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F50B0B7EB91716F1081915C /* TodayView.swift */; };
-		94C2D77AB5CEC79996FDF778 /* GLMSecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = DBB010C15131018EE03BF318 /* GLMSecret.txt */; };
 		9901762C423FBBC203B2565D /* PaywallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585F85B49C5D43B296262B0C /* PaywallView.swift */; };
 		9F094D6222CC008C6AECAADF /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662C5B3384E3C303085F2537 /* KeychainStore.swift */; };
 		A4E17D46133BD35326D25528 /* Engines.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD474050A48522ACDB487C7 /* Engines.swift */; };
@@ -59,6 +59,7 @@
 		7402F66399E4FFA615494432 /* ClearMorningsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearMorningsApp.swift; sourceTree = "<group>"; };
 		7CAF9DC3D6145761497BD201 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		7F9A8C9E91EB25C30B7B3622 /* ContactSupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactSupportView.swift; sourceTree = "<group>"; };
+		8B5CDD1AB8367890D5889CAB /* GLMProxySecret.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GLMProxySecret.txt; sourceTree = "<group>"; };
 		8F33B56022B9101550C7CDAC /* ClearMornings.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClearMornings.entitlements; sourceTree = "<group>"; };
 		9215EEDFAA1DB4CB57ED0744 /* ClearMorningsWidgets.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = ClearMorningsWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40518D52BD359A818E45DA9 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -68,7 +69,6 @@
 		C6C741B94858C9EDF7604F2F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		CBD474050A48522ACDB487C7 /* Engines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engines.swift; sourceTree = "<group>"; };
 		D650AEC8A9A9ED5F3A9FCD38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		DBB010C15131018EE03BF318 /* GLMSecret.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GLMSecret.txt; sourceTree = "<group>"; };
 		DC71376BAC226EE3A36024F3 /* AppGroupStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupStore.swift; sourceTree = "<group>"; };
 		DCCC09565580F29C6A744858 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
 		DF8B5EC9C13D7D8641DAE02E /* FixAnythingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixAnythingView.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			children = (
 				7171531069FE6FFF3F3096EE /* Assets.xcassets */,
 				8F33B56022B9101550C7CDAC /* ClearMornings.entitlements */,
-				DBB010C15131018EE03BF318 /* GLMSecret.txt */,
+				8B5CDD1AB8367890D5889CAB /* GLMProxySecret.txt */,
 				4D072CD9331EA6A1DB3B95E5 /* PrivacyInfo.xcprivacy */,
 				B6A86CFBE5E81CE008110C88 /* App */,
 				257A811DC386F538B8A2B14E /* Engines */,
@@ -272,7 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26CEF9BC6171485D9DB39EAD /* Assets.xcassets in Resources */,
-				94C2D77AB5CEC79996FDF778 /* GLMSecret.txt in Resources */,
+				1247F1CF2078F7140B19ABCB /* GLMProxySecret.txt in Resources */,
 				14A30DEF4C9B5DE74D84AE1C /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
