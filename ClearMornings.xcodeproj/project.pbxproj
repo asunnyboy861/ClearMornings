@@ -36,9 +36,34 @@
 		E3F557099C93A4F18290F829 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52714354EA1CF7B4D1D3F643 /* NotificationService.swift */; };
 		E53C10B275AC224DB5445269 /* AppGroupStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC71376BAC226EE3A36024F3 /* AppGroupStore.swift */; };
 		EBB63D87DE3E126285D6CB21 /* MirrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1E01A54EC08FF778912A6 /* MirrorView.swift */; };
+		EF1575F41C30AFDA9E4DCC68 /* ClearMorningsWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 9215EEDFAA1DB4CB57ED0744 /* ClearMorningsWidgets.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F1D12972A1D45D245435ADDA /* GLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08FCA252710265E12CA13D1 /* GLMService.swift */; };
 		FA5E298E45A6D064B80FEC1D /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC09565580F29C6A744858 /* PurchaseManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0AFA4A76B12C12C3A9999894 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D0FBB141D6FD5924360651D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F0D62D9D3CD482D1D8EB61;
+			remoteInfo = ClearMorningsWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1FDCE217BF0EEE525DE6CD05 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				EF1575F41C30AFDA9E4DCC68 /* ClearMorningsWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		19A4AFE7E1F00E123EFC38C4 /* SOSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSView.swift; sourceTree = "<group>"; };
@@ -215,10 +240,12 @@
 			buildPhases = (
 				0B66668092470D4CB231DE2E /* Sources */,
 				001922C7B500B64B6DE24F1F /* Resources */,
+				1FDCE217BF0EEE525DE6CD05 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A4C69FCE111DE463A7E93339 /* PBXTargetDependency */,
 			);
 			name = ClearMornings;
 			packageProductDependencies = (
@@ -331,6 +358,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A4C69FCE111DE463A7E93339 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93F0D62D9D3CD482D1D8EB61 /* ClearMorningsWidgets */;
+			targetProxy = 0AFA4A76B12C12C3A9999894 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		004127AD369FE8AAEC60B91C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -406,6 +441,8 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Choose an existing photo for your daily Mirror check-in (fully optional).";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,6 +484,8 @@
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Choose an existing photo for your daily Mirror check-in (fully optional).";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

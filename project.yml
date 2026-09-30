@@ -19,6 +19,11 @@ targets:
     sources:
       - ClearMornings
       - Shared
+    dependencies:
+      - target: ClearMorningsWidgets
+        embed: true
+        codeSign: true
+        removeHeaders: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.zzoutuo.ClearMornings
@@ -27,6 +32,8 @@ targets:
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_CFBundleDisplayName: Clear Mornings
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         INFOPLIST_KEY_NSFaceIDUsageDescription: "Clear Mornings uses Face ID to keep your sobriety journey private."
         INFOPLIST_KEY_NSCameraUsageDescription: "Take a daily selfie to see your recovery in the Mirror (fully optional)."
         INFOPLIST_KEY_NSPhotoLibraryUsageDescription: "Choose an existing photo for your daily Mirror check-in (fully optional)."

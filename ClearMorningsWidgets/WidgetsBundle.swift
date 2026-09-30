@@ -200,3 +200,10 @@ struct ClearMorningsStreakWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium, .accessoryCircular, .accessoryRectangular])
     }
 }
+
+@main
+struct ClearMorningsWidgetBundle: WidgetBundle {
+    var body: some Widget {
+        ClearMorningsStreakWidget()
+    }
+}
