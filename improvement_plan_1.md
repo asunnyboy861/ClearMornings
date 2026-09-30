@@ -3,6 +3,13 @@
 Date: 2026-09-30
 Scope: PHASE 4+5 code generation QA. Build verified with `xcodebuild -scheme ClearMornings -destination 'generic/platform=iOS Simulator'` → BUILD SUCCEEDED.
 
+## 0. PHASE 6 runtime fixes (simulator run test)
+
+| # | Issue | Root cause | Fix |
+|---|---|---|---|
+| 10 | 4 build warnings (unnecessary `await` ×3, `var` never mutated) | Stale async wrappers around sync funcs | Removed `await` in SOSView/MirrorView Task closures; `let payload` in GLMService. Zero-warning build. |
+| 11 | Launch shows "Storage is unavailable" on iOS 26.4 simulator | (a) iOS 18+ places SwiftData stores in the App Group container when the entitlement exists — unwritable in simulator provisioning; (b) `@State` assigned inside `App.init()` is discarded when SwiftUI re-creates the App struct, so a successfully built container still rendered the error branch | Explicit `ModelConfiguration(url:)` inside app sandbox + plain `let container/initError` properties instead of `@State` (ClearMorningsApp.swift). Verified: onboarding renders on iPhone 16 (iOS 26.4) and iPad Pro 13" (M5). |
+
 ## 1. Fixes applied during QA build loop
 
 | # | Issue | Fix |
