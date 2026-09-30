@@ -150,7 +150,9 @@ struct GLMClient {
             return try await requestOnce(url: url, body: body, bearer: nil)
         } catch let error as GLMError {
             switch error {
-            case .network(let code) where code >= 500 || code == 0, .emptyResponse:
+            case .network(let code) where code >= 500 || code == 0:
+                return try await requestOnce(url: Self.proxyBackupURL, body: body, bearer: nil)
+            case .emptyResponse:
                 return try await requestOnce(url: Self.proxyBackupURL, body: body, bearer: nil)
             default:
                 throw error
